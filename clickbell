@@ -1,0 +1,3 @@
+#!/bin/bash
+
+klick -P -i -s 3;

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Descargamos la nueva versión con el backup como respaldo
+
+# URL of the .zsync file
+ZSYNC_URL="https://ftp.osuosl.org/pub/musescore-nightlies/linux/4x/nightly/MuseScoreNightly-latest-master-x86_64.AppImage.zsync"
+
+zsync	-i /home/juancarlangas/Descargas/MuseScoreNightly-latest-master-x86_64-Backup.AppImage \
+		-o /home/juancarlangas/Descargas/MuseScoreNightly-latest-master-x86_64.AppImage \
+		http://ftp.osuosl.org/pub/musescore-nightlies/linux/4x/nightly/MuseScoreNightly-latest-master-x86_64.AppImage.zsync
+
+# Rest of your script here
+# La nueva versión ahora será también el backup
+cp	/home/juancarlangas/Descargas/MuseScoreNightly-latest-master-x86_64.AppImage \
+	/home/juancarlangas/Descargas/MuseScoreNightly-latest-master-x86_64-Backup.AppImage
+
+# Brindamos permisos de ejecución a la nueva versión
+chmod a+x /home/juancarlangas/Descargas/MuseScoreNightly-latest-master-x86_64.AppImage
+
+# Eliminamos la versión previa de la carpeta Apps/
+rm /home/juancarlangas/Applications/MuseScoreNightly*
+
+# MOvemos el archivo descargado
+mv /home/juancarlangas/Descargas/MuseScoreNightly-latest-master-x86_64.AppImage /home/juancarlangas/Applications
+
+# Ejecutamos para que se integre
+# /home/juancarlangas/Descargas/MuseScoreNightly-latest-master-x86_64.AppImage

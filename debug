@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo gdb -p $(pgrep commander-beta)
+
